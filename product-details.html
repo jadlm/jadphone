@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails Produit - Apple Jad Phone</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Apple Jad Phone</span>
+                    <span class="logo-sub">Premium iPhones</span>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="products.html"><i class="fas fa-mobile"></i> iPhone</a></li>
+                <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Panier <span id="cart-count">0</span></a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Accueil</a> / 
+            <a href="products.html">iPhone</a> / 
+            <span id="breadcrumb-product">Détails Produit</span>
+        </div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="product-details-section">
+        <div class="container">
+            <div class="product-details-container">
+                <!-- Galerie d'images -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-image" src="" alt="Produit" style="background-color: #f5f5f7; padding: 20px;">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img id="thumbnail-1" class="thumbnail" src="" alt="Vue 1" style="cursor: pointer; background-color: #f5f5f7; padding: 10px;">
+                    </div>
+                </div>
+
+                <!-- Informations produit -->
+                <div class="product-details-info">
+                    <h1 id="detail-product-name" class="product-detail-title">Nom du produit</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count">(256 avis)</span>
+                    </div>
+
+                    <p id="detail-product-description" class="product-detail-description">Description du produit</p>
+
+                    <!-- Prix -->
+                    <div class="price-section">
+                        <div class="current-price">
+                            <span class="price-label">Prix :</span>
+                            <span id="detail-price" class="detail-price">0.00 MAD</span>
+                        </div>
+                    </div>
+
+                    <!-- Options de stockage -->
+                    <div class="detail-storage-section">
+                        <h3>Capacité de stockage</h3>
+                        <div id="detail-storage-options" class="detail-storage-options">
+                            <!-- Généré dynamiquement -->
+                        </div>
+                    </div>
+
+                    <!-- Couleurs (si applicable) -->
+                    <div class="detail-color-section">
+                        <h3>Couleur</h3>
+                        <div class="color-options">
+                            <!-- Généré dynamiquement par JavaScript -->
+                        </div>
+                        <p class="selected-color">Couleur sélectionnée : <strong id="selected-color">Noir</strong></p>
+                    </div>
+
+                    <!-- Quantité -->
+                    <div class="quantity-section">
+                        <h3>Quantité</h3>
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus" id="qty-minus">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" id="detail-quantity" class="qty-input" value="1" min="1" max="10">
+                            <button class="qty-btn plus" id="qty-plus">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="action-buttons">
+                        <button id="add-to-cart-detail" class="btn btn-primary btn-large">
+                            <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                        </button>
+                        <button id="buy-now-btn" class="btn btn-secondary btn-large">
+                            <i class="fas fa-bolt"></i> Acheter maintenant
+                        </button>
+                    </div>
+
+                    <!-- Informations supplémentaires -->
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Produit 100% authentique</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Livraison gratuite en France</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Garantie Apple 2 ans</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-reply"></i>
+                            <span>Retour gratuit sous 30 jours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spécifications complètes -->
+            <div class="product-specifications">
+                <h2>Spécifications techniques</h2>
+                <div class="specifications-grid">
+                    <div class="spec-item">
+                        <h4>Processeur</h4>
+                        <p id="spec-processor">A16 Bionic</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Écran</h4>
+                        <p id="spec-screen">Super Retina XDR 6.1"</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Caméra arrière</h4>
+                        <p id="spec-camera">Dual 48MP</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Caméra frontale</h4>
+                        <p id="spec-selfie">12MP</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Batterie</h4>
+                        <p id="spec-battery">3 200 mAh</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Autonomie</h4>
+                        <p id="spec-autonomy">Jusqu'à 20 heures</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Résistance</h4>
+                        <p id="spec-resistance">IP68 (eau et poussière)</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Poids</h4>
+                        <p id="spec-weight">170g</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avis clients -->
+            <div class="customer-reviews">
+                <h2>Avis clients</h2>
+                <div class="reviews-list">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <strong>Marie Dupont</strong>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">Excellent produit ! La qualité est au rendez-vous et la livraison a été très rapide.</p>
+                        <span class="review-date">Il y a 2 semaines</span>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-header">
+                            <strong>Jean Martin</strong>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">Très satisfait de mon achat. Excellente qualité et bon rapport qualité-prix.</p>
+                        <span class="review-date">Il y a 1 mois</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Apple Jad Phone</span>
+                            <span class="logo-sub">Premium iPhones</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Votre revendeur officiel d'iPhone en France. Produits 100% authentiques avec garantie Apple.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">iPhone</a></li>
+                        <li><a href="cart.html">Panier</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</li>
+                        <li><i class="fas fa-phone"></i> +21262192487</li>
+                        <li><i class="fas fa-envelope"></i> jadlamtaifi@hotmail.fr</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026  Apple Jad Phone. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/Data.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/product-details.js"></script>
+</body>
+</html>

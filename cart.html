@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - Apple Jad Phone</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Apple Jad Phone</span>
+                    <span class="logo-sub">Premium iPhones</span>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="products.html"><i class="fas fa-mobile"></i> iPhone</a></li>
+                <li><a href="cart.html" class="active cart-link"><i class="fas fa-shopping-cart"></i> Panier <span id="cart-count">0</span></a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h1 class="page-title">Votre Panier</h1>
+            
+            <div class="cart-container">
+                <div class="cart-content">
+                    <!-- Cart Items -->
+                    <div class="cart-items">
+                        <div class="cart-header">
+                            <div class="header-product">Produit</div>
+                            <div class="header-storage">Stockage</div>
+                            <div class="header-price">Prix</div>
+                            <div class="header-quantity">Quantité</div>
+                            <div class="header-total">Total</div>
+                            <div class="header-actions">Actions</div>
+                        </div>
+                        
+                        <div class="cart-items-list">
+                            <!-- Les articles du panier seront chargés dynamiquement -->
+                            <div class="empty-cart-message" id="empty-cart-message">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h3>Votre panier est vide</h3>
+                                <p>Ajoutez des produits depuis notre catalogue</p>
+                                <a href="products.html" class="btn btn-primary">Voir les iPhone</a>
+                            </div>
+                        </div>
+                        
+                        <div class="cart-summary" id="cart-summary">
+                            <div class="summary-row">
+                                <span>Sous-total</span>
+                                <span id="subtotal">0.00 MAD</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Livraison</span>
+                                <span id="shipping">0.00 MAD</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="total">0.00 MAD</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Customer Form -->
+                    <div class="customer-form" id="customer-form">
+                        <h2>Informations de livraison</h2>
+                        
+                        <form id="checkout-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="city">Ville *</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Adresse de livraison *</label>
+                                <textarea id="address" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Option de livraison *</label>
+                                <div class="delivery-options">
+                                    <div class="delivery-option">
+                                        <input type="radio" id="delivery-home" name="delivery" value="home" checked>
+                                        <label for="delivery-home">
+                                            <i class="fas fa-home"></i>
+                                            <span>Livraison à domicile</span>
+                                            <small>Livraison gratuite en 24h</small>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="delivery-option">
+                                        <input type="radio" id="delivery-pickup" name="delivery" value="pickup">
+                                        <label for="delivery-pickup">
+                                            <i class="fas fa-store"></i>
+                                            <span>Retrait chez Apple Jad Phone</span>
+                                            <small>Paris, disponible immédiatement</small>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-checkout" id="checkout-btn">
+                                <i class="fas fa-whatsapp"></i> Valider la commande via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Summary Modal -->
+    <div class="modal" id="order-summary-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Récapitulatif de commande</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-summary" id="order-summary-content">
+                    <!-- Le contenu sera généré dynamiquement -->
+                </div>
+                <div class="whatsapp-message">
+                    <h3>Message WhatsApp prêt à envoyer :</h3>
+                    <div class="message-content" id="whatsapp-message-content"></div>
+                    <a href="#" class="btn btn-success" id="whatsapp-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Ouvrir WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Apple Jad Phone</span>
+                            <span class="logo-sub">Premium iPhones</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Votre revendeur officiel d'iPhone en France. Produits 100% authentiques avec garantie Apple.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">iPhone</a></li>
+                        <li><a href="cart.html">Panier</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                        <li><i class="fas fa-phone"></i> +212 621 924 487</li>
+                        <li><i class="fas fa-envelope"></i> contact@applejadphone.fr</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Apple Jad Phone. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser le panier
+            CartSystem.init();
+            
+            // Mettre à jour le compteur du panier
+            CartSystem.updateCartCount();
+            
+            // Charger les articles du panier
+            loadCartItems();
+            
+            // Initialiser le menu mobile
+            initMobileMenu();
+            
+            // Gérer la validation du formulaire
+            document.getElementById('checkout-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                validateOrder();
+            });
+            
+            // Gérer la fermeture du modal
+            document.querySelector('.close-modal').addEventListener('click', function() {
+                document.getElementById('order-summary-modal').classList.remove('active');
+            });
+            
+            // Fermer le modal en cliquant en dehors
+            document.getElementById('order-summary-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+        
+        function loadCartItems() {
+            const cartItemsList = document.querySelector('.cart-items-list');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartSummary = document.getElementById('cart-summary');
+            const customerForm = document.getElementById('customer-form');
+            
+            const cart = CartSystem.getCart();
+            
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'flex';
+                cartSummary.style.display = 'none';
+                customerForm.style.display = 'none';
+                return;
+            }
+            
+            emptyCartMessage.style.display = 'none';
+            cartSummary.style.display = 'block';
+            customerForm.style.display = 'block';
+            
+            cartItemsList.innerHTML = '';
+            
+            cart.forEach(item => {
+                const product = productsData.find(p => p.id === item.id);
+                if (!product) return;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="item-product">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-details">
+                            <h4>${product.name}</h4>
+                            <p>${product.description.substring(0, 50)}...</p>
+                        </div>
+                    </div>
+                    <div class="item-storage">${item.storage} Go</div>
+                    <div class="item-price">${item.price.toFixed(2)} MAD</div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus" data-id="${item.id}" data-storage="${item.storage}">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="quantity-btn plus" data-id="${item.id}" data-storage="${item.storage}">+</button>
+                    </div>
+                    <div class="item-total">${(item.price * item.quantity).toFixed(2)} MAD</div>
+                    <div class="item-actions">
+                        <button class="btn-remove" data-id="${item.id}" data-storage="${item.storage}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                cartItemsList.appendChild(cartItem);
+            });
+            
+            // Ajouter les événements pour les boutons de quantité et de suppression
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const storage = this.getAttribute('data-storage');
+                    CartSystem.updateQuantity(id, storage, -1);
+                    loadCartItems();
+                    CartSystem.updateCartCount();
+                    updateCartTotals();
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const storage = this.getAttribute('data-storage');
+                    CartSystem.updateQuantity(id, storage, 1);
+                    loadCartItems();
+                    CartSystem.updateCartCount();
+                    updateCartTotals();
+                });
+            });
+            
+            document.querySelectorAll('.btn-remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const storage = this.getAttribute('data-storage');
+                    CartSystem.removeFromCart(id, storage);
+                    loadCartItems();
+                    CartSystem.updateCartCount();
+                    updateCartTotals();
+                });
+            });
+            
+            updateCartTotals();
+        }
+        
+        function updateCartTotals() {
+            const cart = CartSystem.getCart();
+            
+            if (cart.length === 0) {
+                document.getElementById('subtotal').textContent = '0.00 MAD';
+                document.getElementById('shipping').textContent = '0.00 MAD';
+                document.getElementById('total').textContent = '0.00 MAD';
+                return;
+            }
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 500 ? 0 : 9.99;
+            const total = subtotal + shipping;
+            
+            document.getElementById('subtotal').textContent = `${subtotal.toFixed(2)} MAD`;
+            document.getElementById('shipping').textContent = `${shipping.toFixed(2)} MAD`;
+            document.getElementById('total').textContent = `${total.toFixed(2)} MAD`;
+        }
+        
+        function validateOrder() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const deliveryOption = document.querySelector('input[name="delivery"]:checked').value;
+            
+            if (!name || !phone || !city || !address) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            // Valider le numéro de téléphone
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
+                alert('Veuillez entrer un numéro de téléphone valide (10 chiffres).');
+                return;
+            }
+            
+            const cart = CartSystem.getCart();
+            if (cart.length === 0) {
+                alert('Votre panier est vide.');
+                return;
+            }
+            
+            // Générer le récapitulatif
+            generateOrderSummary(name, phone, city, address, deliveryOption);
+            
+            // Afficher le modal
+            document.getElementById('order-summary-modal').classList.add('active');
+        }
+        
+        function generateOrderSummary(name, phone, city, address, deliveryOption) {
+            const cart = CartSystem.getCart();
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 500 ? 0 : 9.99;
+            const total = subtotal + shipping;
+            
+            // Générer le contenu du récapitulatif
+            let summaryHTML = `
+                <div class="customer-info">
+                    <h3>Informations client :</h3>
+                    <p><strong>Nom :</strong> ${name}</p>
+                    <p><strong>Téléphone :</strong> ${phone}</p>
+                    <p><strong>Ville :</strong> ${city}</p>
+                    <p><strong>Adresse :</strong> ${address}</p>
+                    <p><strong>Livraison :</strong> ${deliveryOption === 'home' ? 'Livraison à domicile' : 'Retrait en magasin'}</p>
+                </div>
+                
+                <div class="order-items">
+                    <h3>Articles commandés :</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Stockage</th>
+                                <th>Quantité</th>
+                                <th>Prix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            cart.forEach(item => {
+                const product = productsData.find(p => p.id === item.id);
+                summaryHTML += `
+                    <tr>
+                        <td>${product.name}</td>
+                        <td>${item.storage} Go</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.price.toFixed(2)} MAD</td>
+                    </tr>
+                `;
+            });
+            
+            summaryHTML += `
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="order-totals">
+                    <p><strong>Sous-total :</strong> ${subtotal.toFixed(2)} MAD</p>
+                    <p><strong>Livraison :</strong> ${shipping.toFixed(2)} MAD</p>
+                    <p class="total"><strong>Total :</strong> ${total.toFixed(2)} MAD</p>
+                </div>
+            `;
+            
+            document.getElementById('order-summary-content').innerHTML = summaryHTML;
+            
+            // Générer le message WhatsApp
+            generateWhatsAppMessage(name, phone, city, address, deliveryOption, cart, total);
+        }
+        
+        function generateWhatsAppMessage(name, phone, city, address, deliveryOption, cart, total) {
+            let message = `Bonjour, je souhaite commander chez Apple Jad Phone :%0A%0A`;
+            
+            // Ajouter les articles
+            message += `📱 *Articles commandés :*%0A`;
+            cart.forEach((item, index) => {
+                const product = productsData.find(p => p.id === item.id);
+                message += `${index + 1}. ${product.name} - ${item.storage} Go - ${item.quantity}x - ${item.price.toFixed(2)} MAD%0A`;
+            });
+            
+            message += `%0A💰 *Total : ${total.toFixed(2)} MAD*%0A%0A`;
+            
+            // Ajouter les informations client
+            message += `👤 *Informations client :*%0A`;
+            message += `Nom : ${name}%0A`;
+            message += `Téléphone : ${phone}%0A`;
+            message += `Ville : ${city}%0A`;
+            message += `Adresse : ${address}%0A`;
+            message += `Livraison : ${deliveryOption === 'home' ? 'Livraison à domicile' : 'Retrait en magasin'}%0A%0A`;
+            
+            message += `Merci !`;
+            
+            // Mettre à jour le contenu du message
+            document.getElementById('whatsapp-message-content').textContent = decodeURIComponent(message).replace(/%0A/g, '\n');
+            
+            // Mettre à jour le lien WhatsApp
+            const phoneNumber = "212621924487"; // Numéro de téléphone du magasin
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+            document.getElementById('whatsapp-link').href = whatsappLink;
+        }
+        
+        function initMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Fermer le menu mobile en cliquant sur un lien
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

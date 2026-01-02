@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Jad Phone - Premium iPhones</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">Apple Jad Phone</span>
+                    <span class="logo-sub">Premium iPhones</span>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="products.html"><i class="fas fa-mobile"></i> iPhone</a></li>
+                <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Panier <span id="cart-count">0</span></a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <div class="carousel-content">
+                    <h1>iPhone 17 Pro</h1>
+                    <p>L'innovation à son apogée. Disponible maintenant.</p>
+                    <a href="products.html" class="btn btn-primary">Découvrir</a>
+                </div>
+                <div class="carousel-image">
+                    <img src="assets/images/hero__bdntboqignj6_xlarge.jpg" alt="iPhone 17 Pro" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <div class="carousel-content">
+                    <h1>Meilleures ventes</h1>
+                    <p>Les iPhone les plus populaires de l'année.</p>
+                    <a href="#best-sellers" class="btn btn-primary">Voir les modèles</a>
+                </div>
+                <div class="carousel-image">
+                    <img src="assets/images/Sin-a1.png" alt="Meilleures ventes" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <div class="carousel-content">
+                    <h1>Livraison rapide</h1>
+                    <p>Recevez votre iPhone en 24h dans toute la France.</p>
+                    <a href="#features" class="btn btn-primary">En savoir plus</a>
+                </div>
+                <div class="carousel-image">
+                    <img src="assets/images/360_F_185453900_bsOQxfE6zAjYWnXggNFVDdWlNjwbdO74.jpg" alt="Livraison rapide" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+
+          
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="best-sellers" id="best-sellers">
+        <div class="container">
+            <h2 class="section-title">Meilleures ventes</h2>
+            <p class="section-subtitle">Les iPhone les plus populaires de notre collection</p>
+            
+            <div class="products-grid">
+                <!-- Les produits seront chargés dynamiquement par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Pourquoi choisir Apple Jad Phone ?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Livraison rapide</h3>
+                    <p>Recevez votre commande en 24h avec notre service de livraison express.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garantie 2 ans</h3>
+                    <p>Tous nos produits sont garantis 24 mois avec prise en charge Apple.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>100% originaux</h3>
+                    <p>Produits certifiés et authentiques, directement des fabricants.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support 7j/7</h3>
+                    <p>Notre équipe est disponible pour répondre à toutes vos questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Apple Jad Phone</span>
+                            <span class="logo-sub">Premium iPhones</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Votre revendeur officiel d'iPhone en France. Produits 100% authentiques avec garantie Apple.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">iPhone</a></li>
+                        <li><a href="cart.html">Panier</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</li>
+                        <li><i class="fas fa-phone"></i> +21262192487</li>
+                        <li><i class="fas fa-envelope"></i> jadlamtaifi@hotmail.fr</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026  Apple Jad Phone. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        // Chargement des produits populaires sur la page d'accueil
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser le panier
+            CartSystem.init();
+            
+            // Mettre à jour le compteur du panier
+            CartSystem.updateCartCount();
+            
+            // Charger les meilleures ventes
+            loadBestSellers();
+            
+            // Initialiser le carousel
+            initCarousel();
+            
+            // Initialiser le menu mobile
+            initMobileMenu();
+        });
+        
+        function loadBestSellers() {
+            const productsGrid = document.querySelector('.products-grid');
+            if (!productsGrid) return;
+            
+            // Filtrer les meilleures ventes (marqués comme bestSeller)
+            const bestSellers = productsData.filter(product => product.bestSeller);
+            
+            // Limiter à 4 produits pour l'affichage
+            const displayProducts = bestSellers.slice(0, 4);
+            
+            productsGrid.innerHTML = '';
+            
+            displayProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    ${product.bestSeller ? '<span class="best-seller-badge">Best Seller</span>' : ''}
+                    <div class="product-image" style="background-color: ${product.color || '#f5f5f7'};">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description.substring(0, 60)}...</p>
+                        <div class="product-price">À partir de <span class="price">${Math.min(...product.storageOptions.map(o => o.price)).toFixed(2)} MAD</span></div>
+                        <a href="products.html#product-${product.id}" class="btn btn-secondary">Voir détails</a>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+        
+        function initCarousel() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            
+            if (!slides.length) return;
+            
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                // Retirer la classe active de toutes les slides et indicateurs
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                // Ajuster l'index si hors limites
+                if (index >= slides.length) currentSlide = 0;
+                else if (index < 0) currentSlide = slides.length - 1;
+                else currentSlide = index;
+                
+                // Ajouter la classe active à la slide et indicateur courants
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+            }
+            
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+            
+            // Ajouter les événements
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            
+            // Ajouter les événements aux indicateurs
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => showSlide(index));
+            });
+            
+            // Rotation automatique
+            setInterval(nextSlide, 5000);
+        }
+        
+        function initMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Fermer le menu mobile en cliquant sur un lien
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
