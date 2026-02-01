@@ -108,8 +108,13 @@ function loadProductDetails() {
 
     // Événement pour ajouter au panier
     document.getElementById('add-to-cart-detail').addEventListener('click', function() {
-        const selectedStorage = document.querySelector('input[name="storage-detail"]:checked').value;
-        const selectedPrice = parseFloat(document.querySelector('input[name="storage-detail"]:checked').getAttribute('data-price'));
+        const selectedRadio = document.querySelector('input[name="storage-detail"]:checked');
+        if (!selectedRadio) {
+            alert('Veuillez sélectionner une capacité de stockage.');
+            return;
+        }
+        const selectedStorage = selectedRadio.value;
+        const selectedPrice = parseFloat(selectedRadio.getAttribute('data-price'));
         const quantity = parseInt(document.getElementById('detail-quantity').value);
         const selectedColor = document.getElementById('selected-color').textContent;
 
@@ -139,8 +144,13 @@ function loadProductDetails() {
 
     // Événement pour acheter maintenant
     document.getElementById('buy-now-btn').addEventListener('click', function() {
-        const selectedStorage = document.querySelector('input[name="storage-detail"]:checked').value;
-        const selectedPrice = parseFloat(document.querySelector('input[name="storage-detail"]:checked').getAttribute('data-price'));
+        const selectedRadio = document.querySelector('input[name="storage-detail"]:checked');
+        if (!selectedRadio) {
+            alert('Veuillez sélectionner une capacité de stockage.');
+            return;
+        }
+        const selectedStorage = selectedRadio.value;
+        const selectedPrice = parseFloat(selectedRadio.getAttribute('data-price'));
         const quantity = parseInt(document.getElementById('detail-quantity').value);
         const selectedColor = document.getElementById('selected-color').textContent;
 

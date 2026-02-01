@@ -209,8 +209,13 @@
                     const productId = parseInt(this.getAttribute('data-id'));
                     const product = productsData.find(p => p.id === productId);
                     
-                    // Trouver l'option de stockage sélectionnée
-                    const selectedStorage = document.querySelector(`input[name="storage-${productId}"]:checked`).value;
+                    // Trouver l'option de stockage sélectionnée (avec garde)
+                    const selectedRadio = document.querySelector(`input[name="storage-${productId}"]:checked`);
+                    if (!selectedRadio) {
+                        alert('Veuillez sélectionner une capacité de stockage.');
+                        return;
+                    }
+                    const selectedStorage = selectedRadio.value;
                     const storageOption = product.storageOptions.find(opt => opt.size === selectedStorage);
                     
                     if (product && storageOption) {

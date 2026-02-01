@@ -2,6 +2,13 @@
 const CartSystem = {
     // Initialiser le panier
     init: function() {
+        // Log pour debug d'initialisation
+        try {
+            console.log('CartSystem.init - url:', window.location.href, 'localStorage.cart:', localStorage.getItem('cart'));
+        } catch (e) {
+            console.log('CartSystem.init - cannot access localStorage in this context', e);
+        }
+
         // Créer un panier vide s'il n'existe pas
         if (!localStorage.getItem('cart')) {
             localStorage.setItem('cart', JSON.stringify([]));
@@ -19,16 +26,26 @@ const CartSystem = {
     // Sauvegarder le panier dans localStorage
     saveCart: function(cart) {
         localStorage.setItem('cart', JSON.stringify(cart));
+        try {
+            console.log('CartSystem.saveCart - saved cart:', cart, 'raw:', localStorage.getItem('cart'), 'url:', window.location.href);
+        } catch (e) {
+            console.log('CartSystem.saveCart - cannot log localStorage', e);
+        }
         this.updateCartCount();
     },
     
     // Ajouter un produit au panier
     addToCart: function(product) {
+        console.log('CartSystem.addToCart called with', product);
+        // Défaut quantity à 1 si absent ou invalide
+        if (!product.quantity || isNaN(product.quantity) || product.quantity < 1) {
+            product.quantity = 1;
+        }
         const cart = this.getCart();
         
-        // Vérifier si le produit existe déjà dans le panier avec le même stockage
+        // Vérifier si le produit existe déjà dans le panier avec le même stockage (comparaison tolérante)
         const existingItemIndex = cart.findIndex(item => 
-            item.id === product.id && item.storage === product.storage
+            Number(item.id) === Number(product.id) && String(item.storage) === String(product.storage)
         );
         
         if (existingItemIndex !== -1) {
@@ -48,18 +65,21 @@ const CartSystem = {
     // Supprimer un produit du panier
     removeFromCart: function(productId, storage) {
         let cart = this.getCart();
-        cart = cart.filter(item => !(item.id === productId && item.storage === storage));
+        console.log('CartSystem.removeFromCart - before:', cart, 'productId:', productId, 'storage:', storage);
+        cart = cart.filter(item => !(Number(item.id) === Number(productId) && String(item.storage) === String(storage)));
         this.saveCart(cart);
+        console.log('CartSystem.removeFromCart - after:', cart);
         
         // Animation de notification
         this.showNotification('Produit retiré du panier !');
     },
+
     
     // Mettre à jour la quantité d'un produit
     updateQuantity: function(productId, storage, change) {
         const cart = this.getCart();
         const itemIndex = cart.findIndex(item => 
-            item.id === productId && item.storage === storage
+            Number(item.id) === Number(productId) && String(item.storage) === String(storage)
         );
         
         if (itemIndex !== -1) {
@@ -71,6 +91,8 @@ const CartSystem = {
             }
             
             this.saveCart(cart);
+        } else {
+            console.log('CartSystem.updateQuantity - item not found for', productId, storage, 'cart:', cart);
         }
     },
     
